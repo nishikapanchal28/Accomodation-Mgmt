@@ -1,18 +1,28 @@
 version: '3.8'
 
 services:
-    db:
-      image: postgres:alpine
-      ports:
-        - "5432:5432"
-      environment:
-        POSTGRES_DB: postgres
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: root
+  db:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    networks:
+      - app-network
 
-    app:
-       image: accommodation-app
-       ports:
-           - "8080:8080"
-       depends_on:
-            - db
+  app:
+    image: nishikapanchal28/accommodation:v1
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: jdbc:postgresql://localhost:5432/postgres
+    networks:
+      - app-network
+networks:
+  app-network:
+    name: app-network
+    driver: bridge
