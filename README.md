@@ -1,13 +1,13 @@
 # Accomodation-Mgmt
 An application for accommodation listings, in which hotelier can manipulate the information that they want to display on our platforms.
 
-Acceptance criteria
-• User can get all the items for the given hotelier.
-• User can get a single item.
-• User can create new entries.
-• User can update information of any of my items.
-• User can delete any item.
-• User can book an item whenever is called reduces the accommodation availability, fails if there is no availability.
+### Acceptance criteria
+1. User can get all the items for the given hotelier.
+2. User can get a single item.
+3. User can create new entries.
+4. User can update information of any of my items.
+5. User can delete any item.
+6. User can book an item whenever is called reduces the accommodation availability, fails if there is no availability.
 
 ## Table of Contents
 
@@ -17,31 +17,29 @@ Acceptance criteria
 - [API Documentation](#api-documentation)
 - [Testing](#testing)
 - [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Prerequisites
 
 Make sure you have the following tools and technologies installed:
 
-Java JDK (v11 or higher)
-Sprinboot (2.7.15-SNAPSHOT)
-Maven (for building)
-Kotlin (1.7.10)
-PostgreSQL database server(15.3)
-Docker (for Dockerization)
-Postman (for API testing)
-IntelliJ IDEA (2023.1.2) or your favorite IDE or text editor
+1. Java JDK (v11 or higher)
+2. Sprinboot (2.7.15-SNAPSHOT)
+3. Maven (for building)
+4. Kotlin (1.7.10)
+5. PostgreSQL database server(15.3)
+6. Docker (for Dockerization)
+7. Postman (for API testing)
+8. IntelliJ IDEA (2023.1.2) or your favorite IDE or text editor
 
 ## Installation and Setup
 
-1. Step-by-step instructions for setting up the project locally.
+ Step-by-step instructions for setting up the project locally.
 
-2. How to install dependencies.
+1. How to install dependencies.
 - use mvn clean command to clean the project
 - use mvn install command to install the dependencies
 
-3. How to configure environment variables.
+2. How to configure environment variables.
 - Set the project structure, its modules by adding required information to the project's environment.
 - add the compiler settings 
 - add the maven repository path to the project 
@@ -121,25 +119,19 @@ GET  getAllItemsForHotelier
 <details>
   <summary>http://localhost:8080/api/hoteliers/100/items</summary>
   
-```
 
-```
 </details>
 POST bookItem
 <details>
   <summary>http://localhost:8080/api/items/6/bookItem</summary>
   
-```
 
-```
 </details>
 DELETE deleteItem
 <details>
   <summary>http://localhost:8080/api/items/1</summary>
   
-```
 
-```
 </details>
 
 
@@ -170,19 +162,20 @@ docker login
 // Pull application image from DockerHub
 docker pull nishikapanchal28/accommodation:v1
 ```
-```
-//pull 
-docker pull postgres:latest
-```
 
 ```
-// Run MySQL container 
-docker-compose up 
+// List all the images 
+docker images
 ```
 
 ```
 // List all the containers 
 docker ps -a 
+```
+
+```
+// Run container 
+docker-compose up 
 ```
 
 </details>
