@@ -26,11 +26,11 @@ class CachingTest {
         cache?.clear()
 
         // Perform the first request
-        mockMvc.perform(get("/items/2"))
+        mockMvc.perform(get("/items/1"))
                 .andExpect(status().isOk)
 
         // The second request should hit the cache
-        mockMvc.perform(get("/items/2"))
+        mockMvc.perform(get("/items/3"))
                 .andExpect(status().isOk)
     }
 }

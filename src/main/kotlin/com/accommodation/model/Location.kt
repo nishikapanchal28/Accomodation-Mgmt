@@ -31,7 +31,7 @@ data class Location (
 
         @JsonProperty("zip_code")
         @Column(name = "zip_code", nullable = false)
-        var zipCode: String = "",
+        var zipCode: Int = 0,
 
         @JsonProperty("address")
         @Column(name = "address", nullable = false)

@@ -1,12 +1,9 @@
 package com.accommodation.service
 
 import com.accommodation.model.Item
-import com.accommodation.model.ReputationBadge
 import com.accommodation.repository.ItemRepository
 import org.springframework.cache.annotation.CacheEvict
 import org.springframework.cache.annotation.Cacheable
-import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 
 @Service
@@ -18,23 +15,8 @@ class ItemServiceImpl(private val itemRepository: ItemRepository, private val va
     }
 
     @Cacheable("items")
-    override fun getItemById(itemId: Long, rating: Int, city: String, reputationBadge: String): Item? {
-        val item = itemRepository.findById(itemId).orElse(null)
-        if (item != null) {
-
-            if (rating != null && item.rating != rating) {
-                return null
-            }
-
-            if (city != null && item.location.city != city) {
-                return null
-            }
-
-            if (reputationBadge != null && item.reputationBadge != reputationBadge) {
-                return null
-            }
-        }
-        return item
+    override fun getItemById(itemId: Long): Item? {
+        return itemRepository.findById(itemId).orElse(null)
     }
 
     @CacheEvict(value = arrayOf("items"), allEntries = true)
